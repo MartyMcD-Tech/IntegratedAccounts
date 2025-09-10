@@ -9,22 +9,24 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container navwrap">
-      <a class="logo" href="/">
-        <img src="/images/logo.png" alt="Integrated Accounts logo" />
-        <span>Integrated Accounts</span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a class="active" href="/about.html">About Us</a>
-        <a href="/services.html">Services</a>
-        <a href="/quote.html">Get a Quote</a>
-        <a href="/meet.html">Let’s Meet Up</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Replace your current <header>...</header> with this on every page -->
+<header>
+  <div class="container navwrap">
+    <a class="logo" href="/" aria-label="Integrated Accounts">
+      <img src="/images/logo.png" alt="Integrated Accounts logo" />
+      <span class="sr-only">Integrated Accounts</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/services.html">Services</a>
+      <a href="/quote.html">Get a Quote</a>
+      <a href="/meet.html">Let’s Meet Up</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
 
   <main>
     <!-- Hero -->
@@ -102,18 +104,18 @@
   </main>
 
   <footer>
-    <div class="container foot">
-      <div>
-        <strong>Integrated Accounts Ltd</strong><br />
-        <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
-      </div>
-      <nav class="muted" aria-label="Footer">
-        <a href="/blog.html">Blog</a> ·
-        <a href="/terms.html">Terms &amp; Conditions</a> ·
-        <a href="/privacy.html">Privacy Policy</a>
-      </nav>
+  <div class="container foot">
+    <div>
+      <strong>Integrated Accounts Ltd</strong><br />
+      <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
     </div>
-  </footer>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/blog/">Blog</a>
+      <a href="/terms.html">Terms &amp; Conditions</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
