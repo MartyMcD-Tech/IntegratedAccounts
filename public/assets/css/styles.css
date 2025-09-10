@@ -155,3 +155,17 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
   overflow:hidden;clip:rect(0,0,0,0);
   white-space:nowrap;border:0;
 }
+
+/* Inline policy links in forms: match the pill-style nav look */
+.hint a{
+  color: var(--text);
+  text-decoration: none;
+  padding: .5rem .6rem;
+  border-radius: .5rem;
+}
+.hint a:hover,
+.hint a:focus{
+  background: var(--shade);
+  outline: none;
+}
+
