@@ -127,6 +127,17 @@
         return { SUPABASE_URL:"", SUPABASE_ANON_KEY:"", configured:false, error:String(e) };
       }
     }
+
+      // after cachedEnv = await res.json();
+      if (!document.getElementById("sb-status")) {
+      const el = document.createElement("div");
+      el.id = "sb-status";
+      el.textContent = cachedEnv.configured ? "Supabase: connected" : "Supabase: not configured";
+      el.style.cssText = "position:fixed;bottom:10px;right:10px;padding:6px 10px;border-radius:6px;background:#eef7ee;color:#0a4;box-shadow:0 2px 8px rgba(0,0,0,.08);font:12px/1.2 system-ui;z-index:9999";
+      document.body.appendChild(el);
+      setTimeout(()=> el.remove(), 2500);
+      }
+
     async function saveToSupabase(payload){
       const env = await getSupabaseEnv();
       if (!env.configured) return { ok:false, error:"Supabase not configured" };
@@ -134,6 +145,14 @@
       const supabase = createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
       const { error } = await supabase.from("quote_leads").insert(payload);
       return { ok: !error, error };
+    }
+
+    function readUTMs() {
+      const p = new URLSearchParams(location.search);
+      const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+      const out = {};
+      keys.forEach(k => { if (p.get(k)) out[k] = p.get(k); });
+      return out;
     }
 
     /* ========== Flow & State ========== */
@@ -280,6 +299,7 @@
             business_name: state.business_name || null,
             monthly, breakdown, answers: state,
             source_page: location.pathname, referer: document.referrer || null, user_agent: navigator.userAgent || null
+            utm: readUTMs() // <— new: JSONB column not required; Supabase will store as JSON
           };
           const res = await saveToSupabase(payload);
           saveBtn.textContent = res.ok ? "Saved ✓" : "Save failed — try again";
