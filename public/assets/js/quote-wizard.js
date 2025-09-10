@@ -1,9 +1,10 @@
 // /assets/js/quote-wizard.js
-// Integrated Accounts — Single-question Quote Wizard (v3)
-// - Self-contained: pricing engine included
-// - Fetches Supabase credentials from Vercel: /api/supabase-env
-// - Saves to Supabase (insert-only), with mailto & copy fallbacks
-// - Branching flow; localStorage persistence
+// Integrated Accounts — Quote Wizard (Typeform-style, v4)
+// - Single-URL flow with History API (no hashes)
+// - Auto-advance on select/button; Enter = Next, Shift+Enter = Back
+// - Pricing engine built-in
+// - Supabase save via Vercel /api/supabase-env
+// - LocalStorage persistence
 
 (function(){
   /* ======================= PRICING ENGINE ======================= */
@@ -57,8 +58,7 @@
 
     const money = (n) => Math.round((n + Number.EPSILON) * 100) / 100;
     const pct   = (base, p) => base * (p / 100);
-
-    function findInvoicePrice(band){ return (INVOICE_PRICE.find(r=>r.band===band)?.price)||0; }
+    const findInvoicePrice = band => (INVOICE_PRICE.find(r=>r.band===band)?.price)||0;
     function findPayrollPrice(band, cadence="monthly"){
       const row = PAYROLL_PRICE.find(r=>r.band===band); if(!row) return 0;
       const map = { monthly:"p1", fortnightly:"p2", weekly:"p3", daily:"p4" };
@@ -116,21 +116,19 @@
     return { computePrice };
   })();
 
-  /* ======================= SUPABASE FETCH ======================= */
+  /* ======================= SUPABASE VIA VERCEL ======================= */
   let cachedEnv = null;
   async function getSupabaseEnv(){
     if (cachedEnv) return cachedEnv;
     try {
       const res = await fetch("/api/supabase-env");
       if (!res.ok) throw new Error("Bad env response");
-      const json = await res.json();
-      cachedEnv = json;
-      return json;
+      cachedEnv = await res.json();
+      return cachedEnv;
     } catch (e) {
       return { SUPABASE_URL:"", SUPABASE_ANON_KEY:"", configured:false, error:String(e) };
     }
   }
-
   async function saveToSupabase(payload){
     const env = await getSupabaseEnv();
     if (!env.configured) return { ok:false, error:"Supabase not configured" };
@@ -170,6 +168,32 @@
   function load(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}catch{return{}} }
   function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
 
+  /* ======================= TYPEFORM-STYLE ROUTING ======================= */
+  function pushHistory(nodeId){
+    const st = history.state || {};
+    if (st.nodeId !== nodeId) history.pushState({ nodeId }, "", location.href);
+  }
+  window.addEventListener("popstate", (e)=>{
+    const nodeId = (e.state && e.state.nodeId) || "start";
+    path = buildPathTo(nodeId);
+    render();
+  });
+  function buildPathTo(targetId){
+    if (!FLOW[targetId]) return ["start"];
+    const p = ["start"];
+    let guard = 0;
+    while (p[p.length-1] !== targetId && guard++ < 100){
+      const node = FLOW[p[p.length-1]];
+      const nextId = typeof node.next === "function" ? node.next(state) : node.next;
+      if (!nextId || !FLOW[nextId]) break;
+      p.push(nextId);
+    }
+    return p;
+  }
+  if (!history.state || !history.state.nodeId) {
+    history.replaceState({ nodeId: path[0] }, "", location.href);
+  }
+
   /* ======================= RENDER ======================= */
   function labelise(k){ return k.replace(/_/g,' ').replace(/\b\w/g, c=>c.toUpperCase()); }
   function pulse(el){ el.style.boxShadow="0 0 0 2px #ef4444 inset"; setTimeout(()=> el.style.boxShadow="", 450); }
@@ -177,6 +201,9 @@
   function render(){
     const node = FLOW[path[path.length-1]];
     if (!node){ root.innerHTML="<p>Something went wrong.</p>"; return; }
+
+    // Sync history with current node (no URL change)
+    pushHistory(path[path.length - 1]);
 
     root.innerHTML = `
       <div class="card" style="max-width:720px;margin:24px auto;padding:16px">
@@ -200,6 +227,7 @@
     `;
 
     const body = document.getElementById("q-body");
+
     if (node.tp==="select") {
       body.innerHTML = `
         <label style="display:grid;gap:6px;font-weight:600">
@@ -208,19 +236,30 @@
             ${(node.options||[]).map(o=>`<option ${state[node.k]===o?'selected':''}>${o}</option>`).join("")}
           </select>
         </label>`;
-    } else if (node.tp==="number") {
+      const selectEl = body.querySelector(`select[name="${node.k}"]`);
+      selectEl.addEventListener("change", (e)=>{
+        state[node.k] = e.target.value; save();
+        if (node.req && !state[node.k]) return;
+        goNext(); // auto-advance
+      });
+    }
+    else if (node.tp==="number") {
       body.innerHTML = `
         <label style="display:grid;gap:6px;font-weight:600">
           <input type="number" name="${node.k}" value="${state[node.k]||''}" min="${node.min||0}" step="${node.step||1}">
         </label>`;
-    } else if (node.tp==="button") {
-      body.innerHTML = node.options.map(o=>`<button class="btn secondary" data-val="${o.value}">${o.label}</button>`).join("");
+      const inputEl = body.querySelector(`input[name="${node.k}"]`);
+      inputEl.addEventListener("change", (e)=>{ state[node.k]=e.target.value; save(); });
+    }
+    else if (node.tp==="button") {
+      body.innerHTML = (node.options||[]).map(o=>`<button class="btn secondary" data-val="${o.value}">${o.label}</button>`).join("");
       body.addEventListener("click",(e)=>{
         const val = e.target?.dataset?.val;
         if (!val) return;
-        state[node.k]=val; save(); goNext();
+        state[node.k]=val; save(); goNext(); // auto-advance
       });
-    } else if (node.tp==="review") {
+    }
+    else if (node.tp==="review") {
       const { monthly, breakdown } = IA_PRICE.computePrice(state);
       body.innerHTML = `
         ${Object.entries(state).map(([k,v])=>`<p class="muted"><strong>${labelise(k)}:</strong> ${v||''}</p>`).join("")}
@@ -231,7 +270,7 @@
         <p class="hint" style="margin-top:6px">Figures are estimates and may change after we review your records.</p>
       `;
 
-      // Wire review actions
+      // Review actions
       const sendBtn = document.getElementById("q-send");
       const copyBtn = document.getElementById("q-copy");
       const saveBtn = document.getElementById("q-save");
@@ -239,7 +278,6 @@
       sendBtn.setAttribute("href", buildMailto(state, monthly, breakdown));
       copyBtn.onclick = () => copySummary(state, monthly, breakdown, copyBtn);
 
-      // If Supabase not configured, disable Save button gracefully
       getSupabaseEnv().then(env => {
         if (!env.configured) {
           saveBtn.disabled = true;
@@ -267,26 +305,34 @@
       };
     }
 
-    // nav buttons
+    // Nav buttons
     document.getElementById("q-back").onclick = ()=>{ if(path.length>1){ path.pop(); render(); } };
     const nextBtn = document.getElementById("q-next");
     if (nextBtn) nextBtn.onclick = goNext;
 
-    // persist select/number immediately
-    const inputEl = root.querySelector(`[name="${node.k}"]`);
-    if (inputEl) inputEl.addEventListener("change", (e)=>{ state[node.k]=e.target.value; save(); });
+    // Keyboard shortcuts: Enter = Next, Shift+Enter = Back
+    function keyHandler(e){
+      if (e.key === "Enter" && !e.shiftKey){
+        e.preventDefault();
+        if (document.getElementById("q-next")) document.getElementById("q-next").click();
+      } else if (e.key === "Enter" && e.shiftKey){
+        e.preventDefault();
+        const backBtn = document.getElementById("q-back");
+        if (backBtn && !backBtn.disabled) backBtn.click();
+      }
+    }
+    // re-bind per render (one-shot to avoid stacking)
+    document.addEventListener("keydown", keyHandler, { once: true });
   }
 
   function goNext(){
     const node = FLOW[path[path.length-1]];
-    // required check
-    if (node.req && (state[node.k]===undefined || state[node.k]==="" )) { pulse(root); return; }
+    if (node.req && (state[node.k]===undefined || state[node.k]==="")) { pulse(root); return; }
     const nextId = typeof node.next==="function" ? node.next(state) : node.next;
-    if (nextId){ path.push(nextId); render(); }
+    if (nextId){ path.push(nextId); pushHistory(nextId); render(); }
   }
 
   /* ======================= UTILITIES ======================= */
-  function labelise(k){ return k.replace(/_/g,' ').replace(/\b\w/g, c=>c.toUpperCase()); }
   function textSummary(state, monthly, breakdown){
     const lines = [
       ...Object.entries(state).map(([k,v])=>`${labelise(k)}: ${v??''}`),
