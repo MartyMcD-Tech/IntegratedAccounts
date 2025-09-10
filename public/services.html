@@ -7,6 +7,11 @@
   <meta name="description" content="Bookkeeping & accounts, VAT, payroll, Xero setup and cloud migrations for small businesses." />
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <style>
+    /* Page-specific tweak to ensure CTA is centered everywhere */
+    .card.cta{display:grid;gap:8px;justify-items:center;text-align:center}
+    .card.cta .btn{margin:0}
+  </style>
 </head>
 <body>
   <header>
@@ -140,13 +145,11 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA (centered) -->
     <section class="container" style="margin:28px 0 8px">
-      <div class="card centered" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>
-          <h2 style="margin:0 0 4px">Ready for a bespoke quote?</h2>
-          <p class="muted" style="margin:0">Tell us about your business and we’ll recommend the right package.</p>
-        </div>
+      <div class="card cta">
+        <h2 style="margin:0 0 4px">Ready for a bespoke quote?</h2>
+        <p class="muted" style="margin:0">Tell us about your business and we’ll recommend the right package.</p>
         <p style="margin:0"><a class="btn" href="/quote.html">Get a Quote</a></p>
       </div>
     </section>
