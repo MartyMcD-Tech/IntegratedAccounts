@@ -4,201 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Get a Quote — Integrated Accounts</title>
-  <meta name="description" content="Tell us about your business and we’ll prepare a bespoke accounting package and price." />
+  <meta name="description" content="Answer a few quick questions to get a tailored monthly estimate." />
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <style>
-    :root{
-      --bg:#fff; --text:#1b1b1b; --muted:#667085; --brand:#0ea5e9; --shade:#f6f7f9; --border:#e5e7eb;
-      --font: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-    }
-    *{box-sizing:border-box} html,body{margin:0}
-    body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6}
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-    header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border)}
-    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:12px 0}
-    .logo{display:flex;align-items:center;gap:.5rem;font-weight:700}
-    .logo img{height:40px;width:auto}
-    nav a{color:var(--text);text-decoration:none;padding:.5rem .6rem;border-radius:.5rem}
-    nav a:hover, nav a.active{background:var(--shade)}
-    .nav{display:flex;gap:.25rem .25rem;flex-wrap:wrap;justify-content:flex-end}
-    .hero{padding:40px 0;background:linear-gradient(180deg, var(--shade), transparent)}
-    .hero h1{font-size:clamp(1.8rem, 4.5vw, 2.4rem);margin:0}
-    .hero p{color:var(--muted);max-width:70ch;margin:8px 0 0}
-    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
-    .grid{display:grid;gap:16px}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .form{display:grid;gap:12px;max-width:780px}
-    .row{display:grid;gap:12px}
-    .row-2{grid-template-columns:repeat(2,1fr)}
-    label{display:grid;gap:6px;font-weight:600}
-    input, select, textarea{padding:.75rem;border:1px solid var(--border);border-radius:.5rem;font:inherit}
-    input:focus, select:focus, textarea:focus{outline:2px solid var(--brand);border-color:transparent}
-    .hint{font-weight:400;color:var(--muted);font-size:.95rem}
-    .btn{display:inline-block;padding:.85rem 1.1rem;border-radius:.75rem;background:var(--brand);color:#fff;text-decoration:none;border:0;cursor:pointer}
-    footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
-    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0}
-    .muted{color:var(--muted)}
-    @media (max-width: 900px){ .grid-2,.row-2{grid-template-columns:1fr} }
-  </style>
 </head>
 <body>
-  <!-- Replace your current <header>...</header> with this on every page -->
-<header>
-  <div class="container navwrap">
-    <a class="logo" href="/" aria-label="Integrated Accounts">
-      <img src="/images/logo.png" alt="Integrated Accounts logo" />
-      <span class="sr-only">Integrated Accounts</span>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/">Home</a>
-      <a href="/about.html">About Us</a>
-      <a href="/services.html">Services</a>
-      <a href="/quote.html">Get a Quote</a>
-      <a href="/meet.html">Let’s Meet Up</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-  </div>
-</header>
+  <!-- Shared header/nav here -->
 
-  <main>
-    <!-- Intro -->
-    <section class="hero">
-      <div class="container">
-        <h1>Get a bespoke quote</h1>
-        <p>Tell us a little about your business and the support you’re after. We’ll reply with the right package and a clear monthly price.</p>
-      </div>
-    </section>
-
-    <!-- Form -->
-    <section class="container">
-      <div class="card">
-        <!-- Mailto keeps it backend-free; swap action to Formspree/Netlify later -->
-        <form class="form" action="mailto:info@integratedaccounts.co.uk" method="post" enctype="text/plain">
-          <div class="row row-2">
-            <label>
-              Business name
-              <input name="business_name" type="text" autocomplete="organization" required>
-            </label>
-            <label>
-              Your name
-              <input name="contact_name" type="text" autocomplete="name" required>
-            </label>
-          </div>
-
-          <div class="row row-2">
-            <label>
-              Email
-              <input name="email" type="email" autocomplete="email" required>
-            </label>
-            <label>
-              Phone (optional)
-              <input name="phone" type="tel" autocomplete="tel">
-            </label>
-          </div>
-
-          <div class="row row-2">
-            <label>
-              Business type
-              <select name="business_type" required>
-                <option value="">Select…</option>
-                <option>Sole trader</option>
-                <option>Partnership/LLP</option>
-                <option>Limited company</option>
-                <option>Charity/Non-profit</option>
-                <option>Other</option>
-              </select>
-            </label>
-            <label>
-              No. of employees
-              <select name="employees" required>
-                <option value="">Select…</option>
-                <option>0</option>
-                <option>1–5</option>
-                <option>6–10</option>
-                <option>11–25</option>
-                <option>26–50</option>
-                <option>50+</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="row row-2">
-            <label>
-              Annual turnover (approx.)
-              <select name="turnover" required>
-                <option value="">Select…</option>
-                <option>Under £85k (not VAT registered)</option>
-                <option>£85k–£250k</option>
-                <option>£250k–£1m</option>
-                <option>£1m–£5m</option>
-                <option>£5m+</option>
-              </select>
-            </label>
-            <label>
-              Accounting software
-              <select name="software">
-                <option value="">Select…</option>
-                <option>Xero</option>
-                <option>QuickBooks</option>
-                <option>Sage</option>
-                <option>Spreadsheets</option>
-                <option>Other/None</option>
-              </select>
-            </label>
-          </div>
-
-          <fieldset class="row" style="border:0;padding:0;margin:4px 0 0">
-            <legend style="font-weight:700;margin:0 0 6px">Services you’re interested in</legend>
-            <div class="grid grid-2">
-              <label><input type="checkbox" name="services" value="Bookkeeping & Accounts"> Bookkeeping & Accounts</label>
-              <label><input type="checkbox" name="services" value="Payroll (PAYE)"> Payroll (PAYE)</label>
-              <label><input type="checkbox" name="services" value="CIS"> CIS</label>
-              <label><input type="checkbox" name="services" value="VAT (MTD)"> VAT (MTD)</label>
-              <label><input type="checkbox" name="services" value="Xero setup/support"> Xero setup/support</label>
-              <label><input type="checkbox" name="services" value="Cloud migration"> Cloud migration</label>
-              <label><input type="checkbox" name="services" value="Management reporting"> Management reporting</label>
-              <label><input type="checkbox" name="services" value="Something else"> Something else</label>
-            </div>
-          </fieldset>
-
-          <label>
-            Anything we should know?
-            <textarea name="notes" rows="6" placeholder="E.g. bookkeeping backlog, VAT quarters, deadlines…"></textarea>
-          </label>
-
-          <label class="hint" style="display:flex;gap:.5rem;align-items:flex-start">
-            <input type="checkbox" name="consent" required>
-            I’m happy for Integrated Accounts to contact me regarding this enquiry. We won’t share your data. See our <a href="/privacy.html">Privacy Policy</a>.
-          </label>
-
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-            <button type="submit" class="btn">Send my details</button>
-            <span class="hint">This opens your email client with the form details.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <main class="container section">
+    <div id="quote-root"></div>
   </main>
 
-  <footer>
-  <div class="container foot">
-    <div>
-      <strong>Integrated Accounts Ltd</strong><br />
-      <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <a href="/blog/">Blog</a>
-      <a href="/terms.html">Terms &amp; Conditions</a>
-      <a href="/privacy.html">Privacy Policy</a>
-    </nav>
-  </div>
-</footer>
+  <!-- Shared footer here -->
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="/assets/js/quote-modal.js" defer></script>
+  <!-- Pricing engine lives inside quote-modal.js (already bundled there),
+       or in your wizard file if you moved it -->
+  <script src="/assets/js/quote-wizard.js" defer></script>
 </body>
 </html>
