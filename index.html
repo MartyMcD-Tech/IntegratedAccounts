@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Integrated Accounts — Small business accounting & bookkeeping</title>
+  <meta name="description" content="Small business accounting, bookkeeping, VAT, payroll and Xero support — Brighton & UK-wide." />
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root{
+      --bg:#fff; --text:#1b1b1b; --muted:#667085; --brand:#0ea5e9; --shade:#f6f7f9; --border:#e5e7eb;
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    }
+    *{box-sizing:border-box} html,body{margin:0}
+    body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border)}
+    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:.5rem;font-weight:700}
+    .logo img{height:40px;width:auto}
+    nav a{color:var(--text);text-decoration:none;padding:.5rem .6rem;border-radius:.5rem}
+    nav a:hover, nav a.active{background:var(--shade)}
+    .nav{display:flex;gap:.25rem .25rem;flex-wrap:wrap;justify-content:flex-end}
+    .hero{padding:56px 0;background:linear-gradient(180deg, var(--shade), transparent)}
+    .hero h1{font-size:clamp(1.8rem, 4.5vw, 3rem);margin:0}
+    .hero p{color:var(--muted);max-width:60ch}
+    .btn{display:inline-block;padding:.75rem 1rem;border-radius:.75rem;background:var(--brand);color:#fff;text-decoration:none}
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
+    h2{margin:24px 0 8px}
+    h3{margin:8px 0}
+    ul{padding-left:1em}
+    footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0}
+    .muted{color:var(--muted)}
+    @media (max-width: 900px){ .grid-3{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navwrap">
+      <a class="logo" href="/">
+        <!-- Swap for your file path -->
+        <img src="/images/logo.png" alt="Integrated Accounts logo" />
+        <span>Integrated Accounts</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="active" href="/">Home</a>
+        <a href="/about.html">About Us</a>
+        <a href="/services.html">Services</a>
+        <a href="/quote.html">Get a Quote</a>
+        <a href="/meet.html">Let’s Meet Up</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Cloud bookkeeping & accounts for small businesses</h1>
+        <p>Precision accounting, VAT and payroll support, and monthly reporting — delivered on modern cloud tools so we can collaborate with you wherever you are.</p>
+        <p style="margin-top:12px"><a class="btn" href="/quote.html">Get a bespoke quote</a></p>
+      </div>
+    </section>
+
+    <!-- Services list -->
+    <section class="container">
+      <h2>Our services</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Bookkeeping & Accounts</h3>
+          <p class="muted">Accruals, prepayments and tidy year-end files.</p>
+        </article>
+        <article class="card">
+          <h3>Payroll — PAYE & CIS</h3>
+          <p class="muted">Pay runs, RTI submissions and CIS processing.</p>
+        </article>
+        <article class="card">
+          <h3>VAT</h3>
+          <p class="muted">Quarterly checks, reconciliations and MTD filings to HMRC.</p>
+        </article>
+        <article class="card">
+          <h3>Move to the Cloud</h3>
+          <p class="muted">Migration to modern accounting stacks and workflows.</p>
+        </article>
+        <article class="card">
+          <h3>Xero Certified Advisors</h3>
+          <p class="muted">Set-up, support and best-practice processes.</p>
+        </article>
+        <article class="card">
+          <h3>Automated Data Processing</h3>
+          <p class="muted">Bank feeds, rules and document capture to reduce admin.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Packages (your analogies) -->
+    <section class="container">
+      <h2>Service packages</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>NEW CAR</h3>
+          <p>Just starting out in your new vehicle? We can help you get used to the rules of the road until you’re ready to throw the L plates away! We’ll help you get set up, let you know who, how and where you need to get registered and offer help and support along the way.</p>
+        </article>
+        <article class="card">
+          <h3>OIL & BRAKE CHECKS</h3>
+          <p>This is our quarterly service where maybe you do your own bookkeeping but need someone to check it over, reconcile your VAT account and file your VAT return to HMRC. We also add in some basic quarterly management reporting with this one.</p>
+        </article>
+        <article class="card">
+          <h3>REGULAR CHECK UPS</h3>
+          <p>With this service you’ll have a dedicated accountant looking after you once a month. You’ll get precision accounting with accruals and prepayments, full monthly management reports and an idea of your anticipated tax charge for the year.</p>
+        </article>
+        <article class="card">
+          <h3>BATTERY CHANGE</h3>
+          <p>If you’ve been with your current adviser for a while but aren’t getting the support you need, we’ll give you a jump start and make the move over to us seamless.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact summary -->
+    <section class="container">
+      <h2>Contact us</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Call</h3>
+          <p>+44 01273 053556</p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:info@integratedaccounts.co.uk">info@integratedaccounts.co.uk</a></p>
+        </div>
+        <div class="card">
+          <h3>Opening hours</h3>
+          <p>Mon – Fri: 9am – 6pm</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:12px">We don’t collect any personally identifiable info without your approval. Any data you share is sent over an encrypted connection and deleted after 28 days unless we begin a commercial relationship.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <strong>Integrated Accounts Ltd</strong><br />
+        <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
+      </div>
+      <nav class="muted" aria-label="Footer">
+        <a href="/blog.html">Blog</a> ·
+        <a href="/terms.html">Terms &amp; Conditions</a> ·
+        <a href="/privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

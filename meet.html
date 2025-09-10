@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Let’s Meet Up — Integrated Accounts</title>
+  <meta name="description" content="Book a video call, phone call or in-person meeting with Integrated Accounts." />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container navwrap">
+      <a class="logo" href="/">
+        <img src="/images/logo.png" alt="Integrated Accounts logo" />
+        <span>Integrated Accounts</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/about.html">About Us</a>
+        <a href="/services.html">Services</a>
+        <a href="/quote.html">Get a Quote</a>
+        <a class="active" href="/meet.html">Let’s Meet Up</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Let’s Meet Up</h1>
+        <p>Choose what suits you — a quick call, a video chat, or a coffee in Brighton.</p>
+      </div>
+    </section>
+
+    <!-- Meeting options -->
+    <section class="container">
+      <h2>How would you like to meet?</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Video call</h3>
+          <p class="muted">Google Meet or Zoom — whichever you prefer.</p>
+          <ul class="muted">
+            <li>30–45 minutes</li>
+            <li>Screen-share friendly</li>
+            <li>UK-wide</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Phone call</h3>
+          <p class="muted">Perfect for a quick intro or follow-up questions.</p>
+          <ul class="muted">
+            <li>15–30 minutes</li>
+            <li>We’ll call you</li>
+            <li>UK business hours</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>In-person (Brighton)</h3>
+          <p class="muted">Let’s meet locally — coffee’s on us.</p>
+          <ul class="muted">
+            <li>45–60 minutes</li>
+            <li>Central Brighton</li>
+            <li>Weekdays</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Request a slot -->
+    <section class="container">
+      <h2>Request a meeting</h2>
+      <div class="card">
+        <!-- Mailto keeps it backend-free; swap to Formspree/Netlify later -->
+        <form class="form" action="mailto:info@integratedaccounts.co.uk" method="post" enctype="text/plain">
+          <div class="row row-2">
+            <label>
+              Your name
+              <input name="name" type="text" autocomplete="name" required>
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required>
+            </label>
+          </div>
+
+          <div class="row row-2">
+            <label>
+              Meeting type
+              <select name="meeting_type" required>
+                <option value="">Select…</option>
+                <option>Video (Google Meet)</option>
+                <option>Video (Zoom)</option>
+                <option>Phone</option>
+                <option>In-person (Brighton)</option>
+              </select>
+            </label>
+            <label>
+              Phone (if phone call)
+              <input name="phone" type="tel" autocomplete="tel" placeholder="+44…">
+            </label>
+          </div>
+
+          <label>
+            Preferred days/times (UK)
+            <input name="times" type="text" placeholder="E.g. Tue or Thu afternoons, next week">
+          </label>
+
+          <label>
+            Anything we should know?
+            <textarea name="notes" rows="5" placeholder="Topics, software you use, deadlines…"></textarea>
+          </label>
+
+          <label class="hint" style="display:flex;gap:.5rem;align-items:flex-start">
+            <input type="checkbox" name="consent" required>
+            I’m happy for Integrated Accounts to contact me regarding this meeting request. We won’t share your data. See our <a href="/privacy.html">Privacy Policy</a>.
+          </label>
+
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <button type="submit" class="btn">Request meeting</button>
+            <span class="hint">This opens your email client with the details.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Optional map placeholder for in-person -->
+    <section class="container" style="margin-top:16px">
+      <div class="card">
+        <h2>Meeting in Brighton</h2>
+        <div style="aspect-ratio:16/9;background:var(--shade);border:1px solid var(--border);border-radius:10px;display:grid;place-items:center">
+          <p class="muted">Add a Google Maps embed here if you’d like to show a meeting point.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <strong>Integrated Accounts Ltd</strong><br />
+        <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
+      </div>
+      <nav class="muted" aria-label="Footer">
+        <a href="/blog.html">Blog</a> ·
+        <a href="/terms.html">Terms &amp; Conditions</a> ·
+        <a href="/privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
