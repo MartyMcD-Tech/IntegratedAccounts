@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
+  <url><loc>https://www.integratedaccounts.co.uk/</loc><lastmod>2025-09-10</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/about.html</loc><lastmod>2025-09-10</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/services.html</loc><lastmod>2025-09-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/quote.html</loc><lastmod>2025-09-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/meet.html</loc><lastmod>2025-09-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/contact.html</loc><lastmod>2025-09-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/terms.html</loc><lastmod>2025-09-10</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/privacy.html</loc><lastmod>2025-09-10</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://www.integratedaccounts.co.uk/blog/</loc><lastmod>2025-09-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <!-- Example posts (update/remove as you add real ones) -->
+  <url><loc>https://www.integratedaccounts.co.uk/blog/example-post.html</loc><lastmod>2025-09-10</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.integratedaccounts.co.uk/blog/xero-setup-tips.html</loc><lastmod>2025-09-10</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+</urlset>

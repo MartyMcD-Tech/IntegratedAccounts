@@ -50,3 +50,6 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
   .grid-2{grid-template-columns:1fr}
   .row-2{grid-template-columns:1fr}
 }
+
+.card.centered{ text-align:center; display:grid !important; justify-items:center; gap:8px }
+.card.centered .btn{ margin:0 }
