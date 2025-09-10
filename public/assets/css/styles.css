@@ -1,55 +1,130 @@
+/* ========== Theme & Base ========== */
 :root{
-  --bg:#fff; --text:#1b1b1b; --muted:#667085; --brand:#0ea5e9; --shade:#f6f7f9; --border:#e5e7eb;
+  --bg:#ffffff;
+  --text:#1b1b1b;
+  --muted:#667085;
+  --brand:#0ea5e9;
+  --shade:#f6f7f9;
+  --border:#e5e7eb;
+  --radius:14px;
+  --container:1100px;
   --font: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
 }
-*{box-sizing:border-box} html,body{margin:0}
-body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6}
-.container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* Header / Nav */
-header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border)}
-.navwrap{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:12px 0}
-.logo{display:flex;align-items:center;gap:.5rem;font-weight:700}
-.logo img{height:40px;width:auto}
-nav a{color:var(--text);text-decoration:none;padding:.5rem .6rem;border-radius:.5rem}
-nav a:hover, nav a.active{background:var(--shade)}
-.nav{display:flex;gap:.25rem .25rem;flex-wrap:wrap;justify-content:flex-end}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font);
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img,svg,video{max-width:100%;height:auto;display:block}
 
-/* Sections */
-.hero{padding:40px 0;background:linear-gradient(180deg, var(--shade), transparent)}
-.hero h1{font-size:clamp(1.8rem, 4.5vw, 2.4rem);margin:0}
+/* ========== Layout ========== */
+.container{max-width:var(--container);margin:0 auto;padding:0 16px}
+.section{padding:40px 0}
+.hero{
+  padding:40px 0;
+  background:linear-gradient(180deg, var(--shade), transparent);
+}
+.hero h1{font-size:clamp(1.8rem,4.5vw,2.4rem);margin:0}
 .hero p{color:var(--muted);max-width:70ch;margin:8px 0 0}
 
-/* Layout bits */
+/* Grid helpers */
 .grid{display:grid;gap:16px}
-.grid-3{grid-template-columns:repeat(3,1fr)}
 .grid-2{grid-template-columns:repeat(2,1fr)}
-.card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+
+@media (max-width: 900px){
+  .grid-3{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+}
+
+/* Cards */
+.card{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:#fff;
+  padding:16px;
+}
+
+/* Utilities */
+.center{text-align:center}
+.muted{color:var(--muted)}
+.hidden{display:none !important}
+.wide{max-width:none}
+
+/* ========== Header / Nav ========== */
+header{
+  position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border)
+}
+.navwrap{
+  display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:12px 0
+}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:700}
+.logo img{height:40px;width:auto}
+.nav{display:flex;gap:.25rem .25rem;flex-wrap:wrap;justify-content:flex-end}
+.nav a{
+  color:var(--text);text-decoration:none;padding:.5rem .6rem;border-radius:.5rem
+}
+.nav a:hover,.nav a.active{background:var(--shade)}
+
+/* ========== Typography ========== */
+h1,h2,h3{line-height:1.25}
 h2{margin:24px 0 8px}
 h3{margin:8px 0}
 ul{padding-left:1em}
 
-/* Forms & buttons */
+/* Prose block for blog posts */
+.prose{max-width:72ch}
+.prose p{margin:0 0 1rem}
+.prose h2{margin:1.5rem 0 .5rem}
+.prose ul{margin:.5rem 0 1rem}
+
+/* ========== Forms & Buttons ========== */
 .form{display:grid;gap:12px;max-width:780px}
 .row{display:grid;gap:12px}
 .row-2{grid-template-columns:repeat(2,1fr)}
 label{display:grid;gap:6px;font-weight:600}
-input, select, textarea{padding:.75rem;border:1px solid var(--border);border-radius:.5rem;font:inherit}
-input:focus, select:focus, textarea:focus{outline:2px solid var(--brand);border-color:transparent}
+input,select,textarea{
+  padding:.75rem;border:1px solid var(--border);border-radius:.5rem;font:inherit;background:#fff
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);border-color:transparent}
 .hint{font-weight:400;color:var(--muted);font-size:.95rem}
-.btn{display:inline-block;padding:.85rem 1.1rem;border-radius:.75rem;background:var(--brand);color:#fff;text-decoration:none;border:0;cursor:pointer}
 
-/* Footer */
-footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
-.foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0}
-.muted{color:var(--muted)}
-
-/* Responsive */
-@media (max-width: 900px){
-  .grid-3{grid-template-columns:1fr}
-  .grid-2{grid-template-columns:1fr}
-  .row-2{grid-template-columns:1fr}
+.btn{
+  display:inline-block;padding:.85rem 1.1rem;border-radius:.75rem;
+  background:var(--brand);color:#fff;text-decoration:none;border:0;cursor:pointer
 }
 
-.card.centered{ text-align:center; display:grid !important; justify-items:center; gap:8px }
-.card.centered .btn{ margin:0 }
+/* ========== Footer ========== */
+footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
+.foot{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0
+}
+
+/* ========== Page-specific helpers ========== */
+/* Services CTA — centers the card and its inner content */
+.card.cta-block{
+  max-width:720px;
+  margin:0 auto;              /* center the card in the page */
+  display:grid;               /* center the content inside */
+  gap:8px;
+  justify-items:center;
+  text-align:center;
+}
+.card.cta-block .btn{margin:0}
+
+/* Optional: make all section headings a bit tighter above grids */
+.container > h2 + .grid{margin-top:8px}
+
+/* ========== Small tweaks for mobile ========== */
+@media (max-width: 480px){
+  .nav{gap:.25rem}
+  .btn{width:100%;text-align:center}
+  .form{max-width:100%}
+  .prose{max-width:100%}
+}
