@@ -4,151 +4,253 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Integrated Accounts — Small business accounting & bookkeeping</title>
-  <meta name="description" content="Small business accounting, bookkeeping, VAT, payroll and Xero support — Brighton & UK-wide." />
+  <meta name="description" content="Precision bookkeeping, VAT, payroll and Xero support for small businesses — Brighton & UK-wide." />
   <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <style>
-    :root{
-      --bg:#fff; --text:#1b1b1b; --muted:#667085; --brand:#0ea5e9; --shade:#f6f7f9; --border:#e5e7eb;
-      --font: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-    }
-    *{box-sizing:border-box} html,body{margin:0}
-    body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6}
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-    header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border)}
-    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:12px 0}
-    .logo{display:flex;align-items:center;gap:.5rem;font-weight:700}
-    .logo img{height:40px;width:auto}
-    nav a{color:var(--text);text-decoration:none;padding:.5rem .6rem;border-radius:.5rem}
-    nav a:hover, nav a.active{background:var(--shade)}
-    .nav{display:flex;gap:.25rem .25rem;flex-wrap:wrap;justify-content:flex-end}
-    .hero{padding:56px 0;background:linear-gradient(180deg, var(--shade), transparent)}
-    .hero h1{font-size:clamp(1.8rem, 4.5vw, 3rem);margin:0}
-    .hero p{color:var(--muted);max-width:60ch}
-    .btn{display:inline-block;padding:.75rem 1rem;border-radius:.75rem;background:var(--brand);color:#fff;text-decoration:none}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
-    h2{margin:24px 0 8px}
-    h3{margin:8px 0}
-    ul{padding-left:1em}
-    footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
-    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0}
-    .muted{color:var(--muted)}
-    @media (max-width: 900px){ .grid-3{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} }
-  </style>
 </head>
 <body>
-  <!-- Replace your current <header>...</header> with this on every page -->
+
 <header>
   <div class="container navwrap">
-    <a class="logo" href="/" aria-label="Integrated Accounts">
-      <img src="/images/logo.png" alt="Integrated Accounts logo" />
-      <span class="sr-only">Integrated Accounts</span>
+    <a class="logo" href="/" aria-label="Integrated Accounts home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="10" width="3" height="6" rx="1" fill="white"/><rect x="7.5" y="6" width="3" height="10" rx="1" fill="white"/><rect x="13" y="2" width="3" height="14" rx="1" fill="white"/></svg>
+      </div>
+      Integrated Accounts
     </a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Menu
+    </button>
     <nav class="nav" aria-label="Primary">
-      <a href="/">Home</a>
-      <a href="/about.html">About Us</a>
+      <a href="/" class="active">Home</a>
+      <a href="/about.html">About</a>
       <a href="/services.html">Services</a>
-      <a href="/quote.html">Get a Quote</a>
-      <a href="/meet.html">Let’s Meet Up</a>
-      <a href="/contact.html">Contact</a>
       <a href="/blog/">Blog</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/quote.html" class="nav-cta">Get a quote</a>
     </nav>
   </div>
 </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <h1>Cloud bookkeeping & accounts for small businesses</h1>
-        <p>Precision accounting, VAT and payroll support, and monthly reporting — delivered on modern cloud tools so we can collaborate with you wherever you are.</p>
-        <p style="margin-top:12px"><a class="btn" href="/quote.html">Get a bespoke quote</a></p>
-      </div>
-    </section>
+<main>
 
-    <!-- Services list -->
-    <section class="container">
-      <h2>Our services</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Bookkeeping & Accounts</h3>
-          <p class="muted">Accruals, prepayments and tidy year-end files.</p>
-        </article>
-        <article class="card">
-          <h3>Payroll — PAYE & CIS</h3>
-          <p class="muted">Pay runs, RTI submissions and CIS processing.</p>
-        </article>
-        <article class="card">
-          <h3>VAT</h3>
-          <p class="muted">Quarterly checks, reconciliations and MTD filings to HMRC.</p>
-        </article>
-        <article class="card">
-          <h3>Move to the Cloud</h3>
-          <p class="muted">Migration to modern accounting stacks and workflows.</p>
-        </article>
-        <article class="card">
-          <h3>Xero Certified Advisors</h3>
-          <p class="muted">Set-up, support and best-practice processes.</p>
-        </article>
-        <article class="card">
-          <h3>Automated Data Processing</h3>
-          <p class="muted">Bank feeds, rules and document capture to reduce admin.</p>
-        </article>
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Brighton &amp; UK-wide
       </div>
-    </section>
-
-    <!-- Packages (your analogies) -->
-    <section class="container">
-      <h2>Service packages</h2>
-      <div class="grid grid-2">
-        <article class="card">
-          <h3>NEW CAR</h3>
-          <p>Just starting out in your new vehicle? We can help you get used to the rules of the road until you’re ready to throw the L plates away! We’ll help you get set up, let you know who, how and where you need to get registered and offer help and support along the way.</p>
-        </article>
-        <article class="card">
-          <h3>OIL & BRAKE CHECKS</h3>
-          <p>This is our quarterly service where maybe you do your own bookkeeping but need someone to check it over, reconcile your VAT account and file your VAT return to HMRC. We also add in some basic quarterly management reporting with this one.</p>
-        </article>
-        <article class="card">
-          <h3>REGULAR CHECK UPS</h3>
-          <p>With this service you’ll have a dedicated accountant looking after you once a month. You’ll get precision accounting with accruals and prepayments, full monthly management reports and an idea of your anticipated tax charge for the year.</p>
-        </article>
-        <article class="card">
-          <h3>BATTERY CHANGE</h3>
-          <p>If you’ve been with your current adviser for a while but aren’t getting the support you need, we’ll give you a jump start and make the move over to us seamless.</p>
-        </article>
+      <h1>Modern accounting for small businesses that mean business</h1>
+      <p>Precision bookkeeping, VAT, payroll and Xero support — delivered on cloud tools so your numbers are always accurate and on time.</p>
+      <div class="hero-btns">
+        <a href="/quote.html" class="btn btn-primary">Get a bespoke quote</a>
+        <a href="/services.html" class="btn btn-ghost">See our services</a>
       </div>
-    </section>
-
-    <!-- Contact summary -->
-    <section class="container">
-      <h2>Contact us</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Call</h3>
-          <p>+44 01273 053556</p>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M13 5L6.5 11.5 3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Xero certified advisors
         </div>
-        <div class="card">
-          <h3>Email</h3>
-          <p><a href="mailto:info@integratedaccounts.co.uk">info@integratedaccounts.co.uk</a></p>
+        <div class="trust-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M13 5L6.5 11.5 3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          HMRC MTD-ready
         </div>
-        <div class="card">
-          <h3>Opening hours</h3>
-          <p>Mon – Fri: 9am – 6pm</p>
+        <div class="trust-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M13 5L6.5 11.5 3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No lock-in contracts
         </div>
       </div>
-      <p class="muted" style="margin-top:12px">We don’t collect any personally identifiable info without your approval. Any data you share is sent over an encrypted connection and deleted after 28 days unless we begin a commercial relationship.</p>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
+  <!-- ── Services ──────────────────────────────────────────── -->
+  <section class="section container">
+    <div class="label">What we do</div>
+    <h2>Everything your books need</h2>
+    <p style="max-width:56ch;margin-bottom:28px">From day-to-day bookkeeping to cloud migration — we handle the numbers so you can focus on the work.</p>
+    <div class="grid grid-3">
+
+      <article class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 10h8M6 13h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Bookkeeping &amp; accounts</h3>
+        <p>Tidy ledgers, accruals, prepayments and clean year-end files.</p>
+        <ul>
+          <li>Monthly/quarterly processing</li>
+          <li>Bank &amp; control reconciliations</li>
+          <li>Year-end support</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 17c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Payroll — PAYE &amp; CIS</h3>
+        <p>Accurate pay runs, RTI submissions and CIS processing end-to-end.</p>
+        <ul>
+          <li>Monthly/weekly pay runs</li>
+          <li>RTI &amp; EPS/FPS filings</li>
+          <li>CIS processing &amp; reporting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M10 2l8 4.5v5c0 3.8-3.4 7-8 8-4.6-1-8-4.2-8-8v-5L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>VAT (MTD)</h3>
+        <p>Quarterly checks, reconciliations and MTD filings to HMRC.</p>
+        <ul>
+          <li>VAT scheme review</li>
+          <li>Quarterly returns (MTD)</li>
+          <li>HMRC correspondence</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M2 14l5-5 3.5 3.5 4-6 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Move to the cloud</h3>
+        <p>Migration from desktop/spreadsheet setups to modern automated stacks.</p>
+        <ul>
+          <li>Data migration &amp; mapping</li>
+          <li>Process design &amp; training</li>
+          <li>App integrations</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v3l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Xero certified advisors</h3>
+        <p>Best-practice setup, chart of accounts, reporting and ongoing support.</p>
+        <ul>
+          <li>Setup &amp; optimisation</li>
+          <li>Reporting &amp; dashboards</li>
+          <li>Ongoing support</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 7V5.5a3 3 0 016 0V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Automated data processing</h3>
+        <p>Bank feeds, rules and document capture to cut admin and errors.</p>
+        <ul>
+          <li>Bank &amp; invoice capture</li>
+          <li>Automation rules</li>
+          <li>Paperless workflows</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── Packages ───────────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="label">Packages</div>
+    <h2>Find your fit</h2>
+    <p style="max-width:52ch;margin-bottom:28px">Four clear packages — from first-time business owners to clients ready for a fresh start.</p>
+    <div class="grid grid-2">
+
+      <article class="card">
+        <span class="badge">New businesses</span>
+        <h3>New car</h3>
+        <p>Just starting out? We'll get you registered, set up and road-ready — with guidance until you're confident to drive solo.</p>
+      </article>
+
+      <article class="card" style="border-color:#7dd3fc;border-width:1.5px">
+        <span class="badge badge-blue">Most popular</span>
+        <h3>Regular check-ups</h3>
+        <p>Monthly precision accounting with accruals, prepayments, full management reports and a rolling tax view. Your dedicated accountant, every month.</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">Quarterly</span>
+        <h3>Oil &amp; brake checks</h3>
+        <p>Do your own bookkeeping but need a pro to check it over? We reconcile your VAT, file your return and add quarterly management reporting.</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">Switching accountants</span>
+        <h3>Battery change</h3>
+        <p>Not getting the support you need? We'll jump-start the relationship and make moving to us effortless — zero disruption to your business.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── Why us ─────────────────────────────────────────────── -->
+  <section class="section container">
+    <div class="label">Why us</div>
+    <h2>The basics done properly, every time</h2>
+    <div class="grid grid-3" style="margin-top:24px">
+      <div class="card-subtle">
+        <div class="why-num">01</div>
+        <h3>Accurate</h3>
+        <p>Tidy ledgers and reconciliations so your reports actually mean something when you need to make decisions.</p>
+      </div>
+      <div class="card-subtle">
+        <div class="why-num">02</div>
+        <h3>Reliable</h3>
+        <p>Deadlines met, queries answered, commitments kept. We flag issues early — not after the event.</p>
+      </div>
+      <div class="card-subtle">
+        <div class="why-num">03</div>
+        <h3>Clear</h3>
+        <p>Plain English explanations and concrete next steps — no jargon, no confusion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact strip ──────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="label">Get in touch</div>
+    <h2>We'd love to hear from you</h2>
+    <div class="grid grid-3" style="margin-top:20px">
+      <div class="card">
+        <div class="contact-label">Call us</div>
+        <div class="contact-value">+44 01273 053556</div>
+      </div>
+      <div class="card">
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="mailto:info@integratedaccounts.co.uk">info@integratedaccounts.co.uk</a></div>
+      </div>
+      <div class="card">
+        <div class="contact-label">Hours</div>
+        <div class="contact-value">Mon – Fri, 9am – 6pm</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA banner ─────────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="cta-banner">
+      <div>
+        <h2>Ready for a bespoke quote?</h2>
+        <p>Tell us about your business and we'll recommend the right package — no obligation, no jargon.</p>
+      </div>
+      <a href="/quote.html" class="btn btn-primary">Get started today</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
   <div class="container foot">
     <div>
-      <strong>Integrated Accounts Ltd</strong><br />
-      <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
+      <strong>Integrated Accounts Ltd</strong><br>
+      <small>© <span class="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
     </div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="/blog/">Blog</a>
@@ -157,9 +259,6 @@
     </nav>
   </div>
 </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
 </body>
 </html>
