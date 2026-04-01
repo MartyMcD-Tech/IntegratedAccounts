@@ -4,78 +4,90 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Blog — Integrated Accounts</title>
-  <meta name="description" content="Updates and tips from Integrated Accounts." />
+  <meta name="description" content="Short, practical posts on bookkeeping, VAT, payroll and cloud accounting from Integrated Accounts." />
   <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-  <!-- Replace your current <header>...</header> with this on every page -->
+
 <header>
   <div class="container navwrap">
-    <a class="logo" href="/" aria-label="Integrated Accounts">
-      <img src="/images/logo.png" alt="Integrated Accounts logo" />
-      <span class="sr-only">Integrated Accounts</span>
+    <a class="logo" href="/" aria-label="Integrated Accounts home">
+      <img src="/images/logo.png" alt="Integrated Accounts" />
     </a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Menu
+    </button>
     <nav class="nav" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/about.html">About Us</a>
+      <a href="/about.html">About</a>
       <a href="/services.html">Services</a>
-      <a href="/quote.html">Get a Quote</a>
-      <a href="/meet.html">Let’s Meet Up</a>
       <a href="/contact.html">Contact</a>
-      <a href="/blog/">Blog</a>
+      <a href="/quote.html" class="nav-cta">Get a quote</a>
     </nav>
   </div>
 </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Blog</h1>
-        <p>Short, practical posts on bookkeeping, VAT, payroll and cloud accounting.</p>
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="label">Blog</div>
+      <h1>Practical accounting insights</h1>
+      <p>Short, useful posts on bookkeeping, VAT, payroll and cloud accounting — written for busy business owners.</p>
+    </div>
+  </section>
+
+  <!-- ── Posts ─────────────────────────────────────────────── -->
+  <section class="section container">
+    <div class="grid grid-2">
+
+      <article class="card" style="display:flex;flex-direction:column;gap:10px">
+        <time datetime="2025-09-10" style="font-size:13px;color:var(--hint)">10 Sep 2025</time>
+        <h2 style="margin:0;font-size:1.2rem"><a href="/blog/example-post.html" style="color:var(--text)">Closing your VAT quarter without headaches</a></h2>
+        <p style="flex:1">A quick checklist to reconcile control accounts, review exceptions and submit via MTD with confidence.</p>
+        <a href="/blog/example-post.html" class="btn btn-ghost" style="width:fit-content;padding:8px 16px;font-size:14px">Read more</a>
+      </article>
+
+      <article class="card" style="display:flex;flex-direction:column;gap:10px">
+        <time datetime="2025-08-22" style="font-size:13px;color:var(--hint)">22 Aug 2025</time>
+        <h2 style="margin:0;font-size:1.2rem"><a href="/blog/xero-setup-tips.html" style="color:var(--text)">Five Xero setup tips for tidy ledgers</a></h2>
+        <p style="flex:1">From chart-of-accounts hygiene to bank rules — small tweaks that save time every month.</p>
+        <a href="/blog/xero-setup-tips.html" class="btn btn-ghost" style="width:fit-content;padding:8px 16px;font-size:14px">Read more</a>
+      </article>
+
+      <!-- Add more article.card blocks here for new posts -->
+
+    </div>
+
+    <p style="margin-top:20px;font-size:14px;color:var(--muted)">
+      Prefer an RSS reader? <a href="/blog.xml" style="color:var(--brand)">Subscribe to the feed</a>.
+    </p>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="cta-banner">
+      <div>
+        <h2>Ready to get started?</h2>
+        <p>Get a bespoke quote in minutes — no obligation, no jargon.</p>
       </div>
-    </section>
+      <a href="/quote.html" class="btn btn-primary">Get a quote</a>
+    </div>
+  </section>
 
-    <section class="container">
-      <div class="grid grid-2">
-        <!-- Example post card -->
-        <article class="card">
-          <p class="muted" style="margin:0 0 4px">
-            <time datetime="2025-09-10">10 Sep 2025</time>
-          </p>
-          <h2 style="margin:0 0 6px">
-            <a href="/blog/example-post.html">Closing your VAT quarter without headaches</a>
-          </h2>
-          <p class="muted">A quick checklist to reconcile control accounts, review exceptions and submit via MTD with confidence.</p>
-          <p style="margin:8px 0 0"><a class="btn" href="/blog/example-post.html">Read more</a></p>
-        </article>
+</main>
 
-        <article class="card">
-          <p class="muted" style="margin:0 0 4px">
-            <time datetime="2025-08-22">22 Aug 2025</time>
-          </p>
-          <h2 style="margin:0 0 6px">
-            <a href="/blog/xero-setup-tips.html">Five Xero setup tips for tidy ledgers</a>
-          </h2>
-          <p class="muted">From chart-of-accounts hygiene to bank rules — small tweaks that save time every month.</p>
-          <p style="margin:8px 0 0"><a class="btn" href="/blog/xero-setup-tips.html">Read more</a></p>
-        </article>
-
-        <!-- Duplicate the article.card block above for more posts -->
-      </div>
-
-      <!-- Optional RSS link -->
-      <p class="muted" style="margin:16px 0 0">
-        Prefer an RSS reader? <a href="/blog.xml">Subscribe to the feed</a> (optional).
-      </p>
-    </section>
-  </main>
-
-  <footer>
+<footer>
   <div class="container foot">
     <div>
-      <strong>Integrated Accounts Ltd</strong><br />
-      <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
+      <strong>Integrated Accounts Ltd</strong><br>
+      <small>© <span class="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
     </div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="/blog/">Blog</a>
@@ -84,7 +96,6 @@
     </nav>
   </div>
 </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
 </body>
 </html>
