@@ -6,108 +6,150 @@
   <title>About Us — Integrated Accounts</title>
   <meta name="description" content="Learn about Integrated Accounts — our story, approach and values. Modern bookkeeping, VAT, payroll and Xero support for small businesses." />
   <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-  <!-- Replace your current <header>...</header> with this on every page -->
+
 <header>
   <div class="container navwrap">
-    <a class="logo" href="/" aria-label="Integrated Accounts">
-      <img src="/images/logo.png" alt="Integrated Accounts logo" />
-      <span class="sr-only">Integrated Accounts</span>
+    <a class="logo" href="/" aria-label="Integrated Accounts home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="10" width="3" height="6" rx="1" fill="white"/><rect x="7.5" y="6" width="3" height="10" rx="1" fill="white"/><rect x="13" y="2" width="3" height="14" rx="1" fill="white"/></svg>
+      </div>
+      Integrated Accounts
     </a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Menu
+    </button>
     <nav class="nav" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/about.html">About Us</a>
+      <a href="/about.html" class="active">About</a>
       <a href="/services.html">Services</a>
-      <a href="/quote.html">Get a Quote</a>
-      <a href="/meet.html">Let’s Meet Up</a>
-      <a href="/contact.html">Contact</a>
       <a href="/blog/">Blog</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/quote.html" class="nav-cta">Get a quote</a>
     </nav>
   </div>
 </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <h1>About Integrated Accounts</h1>
-        <p>We help small businesses stay on top of the numbers with tidy ledgers, clear reporting and proactive support.</p>
-      </div>
-    </section>
+<main>
 
-    <!-- Story -->
-    <section class="container">
-      <div class="grid grid-2">
-        <div class="card">
-          <h2>Our story</h2>
-          <p>Integrated Accounts was founded to make reliable, modern accounting accessible to busy owners. We combine practical experience with cloud tools so you get accurate books, on time, without the hassle.</p>
-          <p>From day one our focus has been: <strong>clear communication, tidy records, and timely submissions</strong> — the basics done properly, every month.</p>
-        </div>
-        <div class="card">
-          <h2>Our approach</h2>
-          <ul class="muted">
-            <li><strong>Cloud-first:</strong> Xero and connected apps for smooth, secure workflows.</li>
-            <li><strong>Consistency:</strong> Standardised processes, reconciliations and schedules.</li>
-            <li><strong>Proactive:</strong> We flag issues early and keep you ahead of deadlines.</li>
-            <li><strong>Plain English:</strong> Numbers translated into useful actions and next steps.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="label">About us</div>
+      <h1>Accounting that actually works for you</h1>
+      <p>We help small businesses stay on top of their numbers with tidy ledgers, clear reporting and proactive support — all built on modern cloud tools.</p>
+    </div>
+  </section>
 
-    <!-- Values -->
-    <section class="container">
-      <h2>What we care about</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Accuracy</h3>
-          <p class="muted">Tidy ledgers and reconciliations so reports actually mean something.</p>
-        </article>
-        <article class="card">
-          <h3>Reliability</h3>
-          <p class="muted">Deadlines met, queries answered, commitments kept.</p>
-        </article>
-        <article class="card">
-          <h3>Clarity</h3>
-          <p class="muted">Straightforward explanations and clear next steps — no jargon.</p>
-        </article>
+  <!-- ── Story + Approach ──────────────────────────────────── -->
+  <section class="section container">
+    <div class="grid grid-2">
+      <div class="card">
+        <h2>Our story</h2>
+        <p>Integrated Accounts was founded to make reliable, modern accounting accessible to busy owners. We combine practical experience with cloud tools so you get accurate books, on time, without the hassle.</p>
+        <p style="margin-top:14px">From day one our focus has been: <strong>clear communication, tidy records, and timely submissions</strong> — the basics done properly, every month.</p>
       </div>
-    </section>
-
-    <!-- Credentials / Partners -->
-    <section class="container">
-      <h2>Credentials & partners</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Xero Certified Advisors</h3>
-          <p class="muted">Setup, optimisation and ongoing support following best practice.</p>
-        </div>
-        <div class="card">
-          <h3>HMRC MTD-ready</h3>
-          <p class="muted">VAT filings via Making Tax Digital with proper reconciliations.</p>
-        </div>
+      <div class="card">
+        <h2>Our approach</h2>
+        <ul style="list-style:none;padding:0;display:grid;gap:14px;margin-top:4px">
+          <li style="display:flex;gap:12px;align-items:flex-start">
+            <span style="width:28px;height:28px;border-radius:7px;background:#e0f2fe;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3 3 7-7" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><strong>Cloud-first</strong><p style="margin:0;font-size:14px">Xero and connected apps for smooth, secure workflows.</p></div>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start">
+            <span style="width:28px;height:28px;border-radius:7px;background:#e0f2fe;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3 3 7-7" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><strong>Consistent</strong><p style="margin:0;font-size:14px">Standardised processes, reconciliations and schedules.</p></div>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start">
+            <span style="width:28px;height:28px;border-radius:7px;background:#e0f2fe;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3 3 7-7" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><strong>Proactive</strong><p style="margin:0;font-size:14px">We flag issues early and keep you ahead of deadlines.</p></div>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start">
+            <span style="width:28px;height:28px;border-radius:7px;background:#e0f2fe;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3 3 7-7" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><strong>Plain English</strong><p style="margin:0;font-size:14px">Numbers translated into useful actions — no jargon.</p></div>
+          </li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CTA -->
-    <section class="container" style="margin:28px 0 8px">
-      <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>
-          <h2 style="margin:0 0 4px">Thinking of switching accountants?</h2>
-          <p class="muted" style="margin:0">We’ll make the move seamless and keep you running during the handover.</p>
-        </div>
-        <p style="margin:0"><a class="btn" href="/quote.html">Get a Quote</a></p>
+  <!-- ── Values ────────────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="label">Values</div>
+    <h2>What we care about</h2>
+    <div class="grid grid-3" style="margin-top:20px">
+      <div class="card-subtle">
+        <div class="why-num">01</div>
+        <h3>Accuracy</h3>
+        <p>Tidy ledgers and reconciliations so reports actually mean something.</p>
       </div>
-    </section>
-  </main>
+      <div class="card-subtle">
+        <div class="why-num">02</div>
+        <h3>Reliability</h3>
+        <p>Deadlines met, queries answered, commitments kept.</p>
+      </div>
+      <div class="card-subtle">
+        <div class="why-num">03</div>
+        <h3>Clarity</h3>
+        <p>Straightforward explanations and clear next steps — no jargon.</p>
+      </div>
+    </div>
+  </section>
 
-  <footer>
+  <!-- ── Credentials ───────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="label">Credentials &amp; partners</div>
+    <h2>Qualified and ready</h2>
+    <div class="grid grid-2" style="margin-top:20px">
+      <div class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v3l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Xero certified advisors</h3>
+        <p>Setup, optimisation and ongoing support following Xero best practice.</p>
+      </div>
+      <div class="card">
+        <div class="service-icon">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M10 2l8 4.5v5c0 3.8-3.4 7-8 8-4.6-1-8-4.2-8-8v-5L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>HMRC MTD-ready</h3>
+        <p>VAT filings via Making Tax Digital with proper reconciliations every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="cta-banner">
+      <div>
+        <h2>Thinking of switching accountants?</h2>
+        <p>We'll make the move seamless and keep you running during the handover.</p>
+      </div>
+      <a href="/quote.html" class="btn btn-primary">Get a quote</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
   <div class="container foot">
     <div>
-      <strong>Integrated Accounts Ltd</strong><br />
-      <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
+      <strong>Integrated Accounts Ltd</strong><br>
+      <small>© <span class="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
     </div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="/blog/">Blog</a>
@@ -116,9 +158,6 @@
     </nav>
   </div>
 </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
 </body>
 </html>
