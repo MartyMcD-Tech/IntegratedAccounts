@@ -4,24 +4,119 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Get a Quote — Integrated Accounts</title>
-  <meta name="description" content="Answer a few quick questions to get a tailored monthly estimate." />
+  <meta name="description" content="Answer a few quick questions to get a tailored monthly estimate from Integrated Accounts." />
   <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <meta name="supabase-url" content="SUPABASE_URL">
+  <meta name="supabase-anon-key" content="SUPABASE_ANON_KEY">
+  <style>
+    /* Wizard container overrides — keeps the wizard centered and well-spaced */
+    #quote-root {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    /* Trust bar below hero */
+    .quote-trust {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .quote-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .quote-trust-item svg { width: 15px; height: 15px; color: #22c55e; flex-shrink: 0; }
+  </style>
 </head>
 <body>
-  <!-- Shared header/nav here -->
 
-  <main class="container section">
+<header>
+  <div class="container navwrap">
+    <a class="logo" href="/" aria-label="Integrated Accounts home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="10" width="3" height="6" rx="1" fill="white"/><rect x="7.5" y="6" width="3" height="10" rx="1" fill="white"/><rect x="13" y="2" width="3" height="14" rx="1" fill="white"/></svg>
+      </div>
+      Integrated Accounts
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Menu
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/quote.html" class="nav-cta active">Get a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="label">Get a quote</div>
+      <h1>A tailored estimate in minutes</h1>
+      <p>Answer a few quick questions about your business and we'll put together a bespoke monthly estimate — no obligation, no jargon.</p>
+      <div class="quote-trust">
+        <div class="quote-trust-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M13 5L6.5 11.5 3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No obligation
+        </div>
+        <div class="quote-trust-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M13 5L6.5 11.5 3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Response within one working day
+        </div>
+        <div class="quote-trust-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M13 5L6.5 11.5 3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Data encrypted &amp; kept private
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Wizard ─────────────────────────────────────────────── -->
+  <section class="section container">
     <div id="quote-root"></div>
-  </main>
+  </section>
 
-  <!-- Shared footer here -->
+  <!-- ── Fallback / Prefer to talk ─────────────────────────── -->
+  <section class="section-sm container">
+    <div class="cta-banner">
+      <div>
+        <h2>Prefer to talk it through?</h2>
+        <p>Call us on <strong style="color:var(--text)">+44 01273 053556</strong> or drop us an email — we're happy to help.</p>
+      </div>
+      <a href="/contact.html" class="btn btn-ghost">Contact us</a>
+    </div>
+  </section>
 
-  <!-- Pricing engine lives inside quote-modal.js (already bundled there),
-       or in your wizard file if you moved it -->
-  <script src="/assets/js/wizard-v5.js" defer></script>
-<meta name="supabase-url" content=SUPABSE_URL>
-<meta name="supabase-anon-key" content=SUPABASE_ANON_KEY>
+</main>
 
+<footer>
+  <div class="container foot">
+    <div>
+      <strong>Integrated Accounts Ltd</strong><br>
+      <small>© <span class="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/blog/">Blog</a>
+      <a href="/terms.html">Terms &amp; Conditions</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>
+<script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
+<script src="/assets/js/wizard-v5.js" defer></script>
 </body>
 </html>

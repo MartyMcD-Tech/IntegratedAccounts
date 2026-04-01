@@ -6,124 +6,127 @@
   <title>Contact — Integrated Accounts</title>
   <meta name="description" content="Get in touch with Integrated Accounts for bookkeeping, VAT, payroll and Xero support." />
   <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <style>
-    :root{
-      --bg:#fff; --text:#1b1b1b; --muted:#667085; --brand:#0ea5e9; --shade:#f6f7f9; --border:#e5e7eb;
-      --font: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-    }
-    *{box-sizing:border-box} html,body{margin:0}
-    body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6}
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-    header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border)}
-    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:12px 0}
-    .logo{display:flex;align-items:center;gap:.5rem;font-weight:700}
-    .logo img{height:40px;width:auto}
-    nav a{color:var(--text);text-decoration:none;padding:.5rem .6rem;border-radius:.5rem}
-    nav a:hover, nav a.active{background:var(--shade)}
-    .nav{display:flex;gap:.25rem .25rem;flex-wrap:wrap;justify-content:flex-end}
-    .hero{padding:40px 0;background:linear-gradient(180deg, var(--shade), transparent)}
-    .hero h1{font-size:clamp(1.8rem, 4.5vw, 2.4rem);margin:0}
-    .hero p{color:var(--muted);max-width:70ch;margin:8px 0 0}
-    .grid{display:grid;gap:16px}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
-    .form{display:grid;gap:12px;max-width:720px}
-    label{display:grid;gap:6px;font-weight:600}
-    input, textarea{padding:.75rem;border:1px solid var(--border);border-radius:.5rem;font:inherit}
-    input:focus, textarea:focus{outline:2px solid var(--brand);border-color:transparent}
-    .btn{display:inline-block;padding:.85rem 1.1rem;border-radius:.75rem;background:var(--brand);color:#fff;text-decoration:none;border:0;cursor:pointer}
-    .muted{color:var(--muted)}
-    footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
-    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0}
-    @media (max-width: 900px){ .grid-2{grid-template-columns:1fr} }
-  </style>
 </head>
 <body>
-  <!-- Replace your current <header>...</header> with this on every page -->
+
 <header>
   <div class="container navwrap">
-    <a class="logo" href="/" aria-label="Integrated Accounts">
-      <img src="/images/logo.png" alt="Integrated Accounts logo" />
-      <span class="sr-only">Integrated Accounts</span>
+    <a class="logo" href="/" aria-label="Integrated Accounts home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="10" width="3" height="6" rx="1" fill="white"/><rect x="7.5" y="6" width="3" height="10" rx="1" fill="white"/><rect x="13" y="2" width="3" height="14" rx="1" fill="white"/></svg>
+      </div>
+      Integrated Accounts
     </a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Menu
+    </button>
     <nav class="nav" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/about.html">About Us</a>
+      <a href="/about.html">About</a>
       <a href="/services.html">Services</a>
-      <a href="/quote.html">Get a Quote</a>
-      <a href="/meet.html">Let’s Meet Up</a>
-      <a href="/contact.html">Contact</a>
       <a href="/blog/">Blog</a>
+      <a href="/contact.html" class="active">Contact</a>
+      <a href="/quote.html" class="nav-cta">Get a quote</a>
     </nav>
   </div>
 </header>
 
-  <main>
-    <!-- Intro -->
-    <section class="hero">
-      <div class="container">
-        <h1>Contact</h1>
-        <p>Questions, quotes or a quick sense-check — we’d love to hear from you.</p>
-      </div>
-    </section>
+<main>
 
-    <!-- Details + Form -->
-    <section class="container">
-      <div class="grid grid-2">
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="label">Contact</div>
+      <h1>Questions, quotes or a quick sense-check</h1>
+      <p>We'd love to hear from you. Drop us a message and we'll get back to you within one working day.</p>
+    </div>
+  </section>
+
+  <!-- ── Contact details + Form ────────────────────────────── -->
+  <section class="section container">
+    <div class="grid grid-2" style="align-items:start">
+
+      <!-- Left: Details -->
+      <div style="display:grid;gap:16px">
         <div class="card">
-          <h2>Get in touch</h2>
-          <p><strong>Phone:</strong> +44 01273 053556</p>
-          <p><strong>Email:</strong> <a href="mailto:info@integratedaccounts.co.uk">info@integratedaccounts.co.uk</a></p>
-          <p><strong>Hours:</strong> Mon–Fri, 9am–6pm (UK)</p>
-          <hr style="border:none;border-top:1px solid var(--border);margin:12px 0" />
-          <p class="muted">We don’t collect any personally identifiable info without your approval. Any data you share is transmitted over an encrypted connection and deleted after 28 days unless we begin a commercial relationship.</p>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value" style="margin-bottom:16px"><a href="tel:+441273053556">+44 01273 053556</a></div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value" style="margin-bottom:16px"><a href="mailto:info@integratedaccounts.co.uk">info@integratedaccounts.co.uk</a></div>
+          <div class="contact-label">Hours</div>
+          <div class="contact-value">Mon – Fri, 9am – 6pm (UK)</div>
         </div>
-
-        <div class="card">
-          <!-- Mailto keeps it backend-free; replace action with Formspree/Netlify later -->
-          <form class="form" action="mailto:info@integratedaccounts.co.uk" method="post" enctype="text/plain">
-            <label>
-              Your name
-              <input name="name" type="text" autocomplete="name" required>
-            </label>
-            <label>
-              Email
-              <input name="email" type="email" autocomplete="email" required>
-            </label>
-            <label>
-              Phone (optional)
-              <input name="phone" type="tel" autocomplete="tel">
-            </label>
-            <label>
-              How can we help?
-              <textarea name="message" rows="6" placeholder="Briefly describe what you need…" required></textarea>
-            </label>
-            <button class="btn" type="submit">Send message</button>
-            <p class="muted" style="margin:6px 0 0">Submitting opens your email client with the form details.</p>
-          </form>
+        <div class="card-subtle" style="border-radius:12px;padding:20px">
+          <p style="font-size:14px;line-height:1.7;margin:0">We don't collect any personally identifiable information without your approval. Any data you share is transmitted over an encrypted connection and deleted after 28 days unless we begin a commercial relationship.</p>
         </div>
       </div>
-    </section>
 
-    <!-- Optional map placeholder -->
-    <!--
-    <section class="container" style="margin-top:16px">
+      <!-- Right: Form -->
       <div class="card">
-        <h2>Find us</h2>
-        <div style="aspect-ratio:16/9;background:var(--shade);border:1px solid var(--border);border-radius:10px;display:grid;place-items:center">
-          <p class="muted">Embed a map here (Google Maps iframe)</p>
-        </div>
+        <h2 style="margin-top:0;margin-bottom:20px">Send us a message</h2>
+        <!-- Replace action with Formspree or Netlify Forms when ready -->
+        <form class="form" action="mailto:info@integratedaccounts.co.uk" method="post" enctype="text/plain">
+          <div class="form-row">
+            <label>
+              First name
+              <input name="first_name" type="text" autocomplete="given-name" required placeholder="Jane">
+            </label>
+            <label>
+              Last name
+              <input name="last_name" type="text" autocomplete="family-name" required placeholder="Smith">
+            </label>
+          </div>
+          <label>
+            Email address
+            <input name="email" type="email" autocomplete="email" required placeholder="jane@example.com">
+          </label>
+          <label>
+            Phone <span class="hint">(optional)</span>
+            <input name="phone" type="tel" autocomplete="tel" placeholder="+44 7700 000000">
+          </label>
+          <label>
+            How can we help?
+            <textarea name="message" rows="5" placeholder="Briefly describe what you need…" required></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">
+            Send message
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p style="font-size:13px;color:var(--hint);margin:0;text-align:center">Submitting opens your email client with the form details pre-filled.</p>
+        </form>
       </div>
-    </section>
-    -->
-  </main>
 
-  <footer>
+    </div>
+  </section>
+
+  <!-- ── Also try ───────────────────────────────────────────── -->
+  <section class="section-sm container">
+    <div class="label">Other ways to connect</div>
+    <h2>Prefer something different?</h2>
+    <div class="grid grid-2" style="margin-top:20px">
+      <a href="/quote.html" class="card" style="display:block;text-decoration:none">
+        <h3>Get a bespoke quote</h3>
+        <p>Answer a few quick questions and we'll put together a tailored monthly estimate.</p>
+      </a>
+      <a href="/meet.html" class="card" style="display:block;text-decoration:none">
+        <h3>Let's meet up</h3>
+        <p>Book a free introductory call or an in-person meeting to talk through your needs.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
   <div class="container foot">
     <div>
-      <strong>Integrated Accounts Ltd</strong><br />
-      <small class="muted">© <span id="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
+      <strong>Integrated Accounts Ltd</strong><br>
+      <small>© <span class="year"></span> Integrated Accounts Ltd. All rights reserved.</small>
     </div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="/blog/">Blog</a>
@@ -132,9 +135,6 @@
     </nav>
   </div>
 </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
 </body>
 </html>
